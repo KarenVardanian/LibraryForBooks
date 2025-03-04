@@ -78,8 +78,8 @@ namespace LibraryForBooks.Services
         {
             if (string.IsNullOrWhiteSpace(titlePart))
             {
-                _logger.LogWarning(Errors.ErrorEmptyTitleSearch);
-                return Enumerable.Empty<Book>();
+                _logger.LogError(Errors.ErrorEmptyTitleSearch);
+                return new List<Book>();
             }
 
             var result = bookList.Where(b => b.Title.Contains(titlePart, StringComparison.OrdinalIgnoreCase));
